@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <!--ToDo: Use the Header component selector-->
-        <appHeader>
+        <appHeader v-bind:quoteCount="quotes.length" v-bind:maxQuotes="this.maxQuotes">
             <!--Bind data props quoteCount and set it equal to the quote length-->
             <!--Bind data props maxQuotes and set it equal to the maxQuotes created below-->
         </appHeader>
@@ -13,7 +13,7 @@
         </appNewQuote>
 
         <!--ToDo: Use the QuoteGrid component selector-->
-        <appQuoteGrid>
+        <appQuoteGrid v-bind:quotes="this.quotes" >
             <!--Bind data props quotes and set it equal to the quotes array created below-->
             <!--Call quoteDeleted that is emitted from the QuoteGrid Component and pass the deleteQuote method created below-->
         </appQuoteGrid>
