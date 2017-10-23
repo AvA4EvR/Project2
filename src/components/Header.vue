@@ -8,6 +8,7 @@
                         <!--Remember to multiply the the divided total by 100 and adding the '%' to get a percentage-->
                     <div class="progress-bar" :style="[increaseBar,{width:(quoteCount / maxQuotes) * 100 + '%'}]"role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
                         <!--ToDo: Output the number of quotes displayed on the page out of the max quotes-->
+                        #quotes out of Max quotes
                     </div>
                 </div>
             </div>
