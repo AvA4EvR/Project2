@@ -1,19 +1,19 @@
 <template>
     <div class="container">
         <!--ToDo: Use the Header component selector-->
-        <appHeader v-bind:quoteCount="quotes.length" v-bind:maxQuotes="this.maxQuotes">
+        <appHeader v-bind:quoteCount="quotes.length" v-bind:maxQuotes="maxQuotes">
             <!--Bind data props quoteCount and set it equal to the quote length-->
             <!--Bind data props maxQuotes and set it equal to the maxQuotes created below-->
         </appHeader>
 
 
         <!--ToDo: Use the NewQuote component selector-->
-        <appNewQuote>
+        <appNewQuote @quoteAdded="newQuote">
             <!--Initiate an $emit event listener called quoteAdded that is equal to newQuote-->
         </appNewQuote>
 
         <!--ToDo: Use the QuoteGrid component selector-->
-        <appQuoteGrid v-bind:quotes="this.quotes" >
+        <appQuoteGrid v-bind:quotes="quotes" @quoteDeleted="deleteQuote">
             <!--Bind data props quotes and set it equal to the quotes array created below-->
             <!--Call quoteDeleted that is emitted from the QuoteGrid Component and pass the deleteQuote method created below-->
         </appQuoteGrid>
@@ -36,7 +36,7 @@
         data: function () {
             return {
                 // ToDo: Create an array data object called quotes
-                quotes: ['string'],
+                quotes: ['Default'],
                     // Have at least one string quote by default
 
                 // ToDo: Create a data object maxQuotes that is set to 10
@@ -58,7 +58,7 @@
             // ToDo: Create a method deleteQuote that takes in a parameter of index
                 // This method will splice the quotes array by (index, 1)
             deleteQuote(index) {
-                index.splice(index, 1);
+                this.quotes.splice(index, 1);
             }
         },
         components: {

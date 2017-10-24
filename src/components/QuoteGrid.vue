@@ -1,9 +1,8 @@
 <template>
     <div class="row">
         <!--ToDo: Use the Quote component selector-->
-        <appQuote v-for="Quotes in Quote"
-        :Quote="Quote" @click.native="deleteQuote">
-
+        <appQuote v-for="(quote, index) in quotes" @click.native="deleteQuote(index)">
+            {{quote}}
 
             <!--Loop through the quote and index in quotes-->
 
@@ -29,9 +28,7 @@
             // ToDo: Create a method deleteQuote that takes a paremeter of index
                 // Emit and event listener named quotesDeleted and passes the index parameter
             deleteQuote(index){
-                eventBus.$on('quotesDeleted', (index) => {
-
-                })
+                this.$emit('quoteDeleted', index);
             }
         }
     }

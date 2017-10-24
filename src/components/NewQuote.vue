@@ -28,9 +28,8 @@
             // ToDo: Create a method createNew that emits an event listener named quoteAdded that passes the quote data object
                 // Re-initialize quote to an empty string
             createNew() {
-                    eventBus.$on('quoteAdded', (quote) => {
-                        this.quote = ''
-                    })
+                    this.$emit('quoteAdded', this.quote);
+                    this.quote = '';
 
 
             }
